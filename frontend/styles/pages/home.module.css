@@ -1,0 +1,56 @@
+.main {
+  @apply flex flex-col items-center min-h-screen py-16 px-8;
+}
+
+.title {
+  @apply m-0 leading-tight text-6xl text-center;
+}
+
+.title a {
+  @apply text-primary no-underline;
+}
+
+.title a:hover {
+  @apply underline;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 72rem;
+  margin-top: 3rem;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.card {
+  @apply p-6 rounded-lg bg-white shadow-lg;
+}
+
+.card h2 {
+  @apply m-0 mb-4 text-2xl text-gray-700;
+}
+
+.card p {
+  @apply m-0 text-xl leading-relaxed;
+}
+
+.meta {
+  @apply mt-4 text-gray-500 text-sm;
+}
+
+.pagination {
+  @apply mt-8 text-center text-gray-600;
+} 

@@ -1,5 +1,5 @@
 import { getPosts } from '../services/api';
-import styles from '../styles/pages/home.module.scss';
+import styles from '../styles/pages/home.module.css';
 import { getPostContent } from '../utils/content';
 
 export const revalidate = 3600; // Revalidate every hour
