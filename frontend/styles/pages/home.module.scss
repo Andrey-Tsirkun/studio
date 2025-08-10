@@ -1,0 +1,60 @@
+@use '../variables' as *;
+@use 'sass:color';
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 4rem 2rem;
+}
+
+.title {
+  margin: 0;
+  line-height: 1.15;
+  font-size: 4rem;
+  text-align: center;
+  
+  a {
+    color: $primary-color;
+    text-decoration: none;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: $grid-gap;
+  width: 100%;
+  max-width: $container-width;
+  margin-top: 3rem;
+}
+
+.card {
+  padding: 1.5rem;
+  border-radius: 10px;
+  background: $background-color;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  
+  h2 {
+    margin: 0 0 1rem 0;
+    font-size: 1.5rem;
+    color: color.adjust($text-color, $lightness: 20%);
+  }
+  
+  p {
+    margin: 0;
+    font-size: 1.25rem;
+    line-height: 1.5;
+  }
+}
+
+.meta {
+  margin-top: 1rem;
+  color: color.adjust($text-color, $lightness: 40%);
+  font-size: 0.9rem;
+} 
