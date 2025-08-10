@@ -9,8 +9,17 @@ services:
         BUILDKIT_INLINE_CACHE: 1
     image: nextjs-strapi-boilerplate-nextjs
     volumes:
-      - ./frontend:/app
-      - nextjs_node_modules:/app/node_modules
+      - ./frontend/src:/app/src
+      - ./frontend/public:/app/public
+      - ./frontend/styles:/app/styles
+      - ./frontend/types:/app/types
+      - ./frontend/utils:/app/utils
+      - ./frontend/services:/app/services
+      - ./frontend/app:/app/app
+      - ./frontend/tsconfig.json:/app/tsconfig.json
+      - ./frontend/next.config.ts:/app/next.config.ts
+      - ./frontend/eslint.config.mjs:/app/eslint.config.mjs
+      - ./frontend/next-env.d.ts:/app/next-env.d.ts
       - nextjs_build_cache:/app/.next
     ports:
       - "3000:3000"
@@ -73,7 +82,6 @@ networks:
 
 volumes:
   postgres_data:
-  nextjs_node_modules:
   nextjs_build_cache:
   strapi_node_modules:
   strapi_build_cache: 
