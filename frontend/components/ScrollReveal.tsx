@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ScrollReveal: React.FC = () => {
+const ScrollReveal = () => {
   return (
     <div className="relative">
       <div className="fixed inset-0">

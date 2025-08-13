@@ -20,6 +20,11 @@ FROM base AS builder
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
+# Ensure Tailwind config files are present
+RUN ls -la
+RUN cat tailwind.config.js
+RUN cat postcss.config.js
+
 # Enable package manager cache for build
 RUN --mount=type=cache,target=/root/.npm \
     npm set cache /root/.npm && \
