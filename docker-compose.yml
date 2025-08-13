@@ -17,7 +17,7 @@ services:
       - ./frontend/services:/app/services
       - ./frontend/app:/app/app
       - ./frontend/tsconfig.json:/app/tsconfig.json
-      - ./frontend/next.config.ts:/app/next.config.ts
+      - ./frontend/next.config.js:/app/next.config.js
       - ./frontend/eslint.config.mjs:/app/eslint.config.mjs
       - ./frontend/next-env.d.ts:/app/next-env.d.ts
       - nextjs_build_cache:/app/.next

@@ -13,7 +13,7 @@ RUN --mount=type=cache,target=/root/.npm \
 
 COPY package*.json ./
 RUN --mount=type=cache,target=/root/.npm \
-    npm install
+    npm install --legacy-peer-deps
 
 # Rebuild the source code only when needed
 FROM base AS builder
