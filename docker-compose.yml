@@ -15,6 +15,7 @@ services:
       - ./frontend/types:/app/types
       - ./frontend/utils:/app/utils
       - ./frontend/services:/app/services
+      - ./frontend/components:/app/components
       - ./frontend/app:/app/app
       - ./frontend/tsconfig.json:/app/tsconfig.json
       - ./frontend/next.config.js:/app/next.config.js
