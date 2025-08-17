@@ -2,8 +2,9 @@
 
 import React, { useLayoutEffect } from 'react';
 import { useGSAP } from '@gsap/react';
-import gsap from 'gsap';
+import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Copy from './Copy';
 
 const ScrollReveal = () => {
   useLayoutEffect(() => {
@@ -37,11 +38,15 @@ const ScrollReveal = () => {
         <div className="light absolute inset-0 flex items-center justify-center gap-16 bg-[#f2f2f2]">
           <div className="flex gap-3 items-center">
             <h1 className="text-6xl font-bold text-gray-900">
-              Exclamation<span className="text-yellow-500">!</span> <br /> Art
+              <Copy animateOnScroll={false} delay={1}>
+                <span>Exclamation<span className="text-yellow-500">!</span> <br /> Art</span>
+              </Copy>
             </h1>
             <span className="w-3 h-56 bg-gray-900" />
             <h1 className="text-6xl self-end font-bold text-gray-900">
-              Studio
+              <Copy animateOnScroll={false} delay={1.5}>
+                <span>Studio</span>
+              </Copy>
             </h1>
           </div>
         </div>
