@@ -1,12 +1,15 @@
 'use client';
 
-import React from 'react';
+import React, { useLayoutEffect } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 const ScrollReveal = () => {
-  gsap.registerPlugin(ScrollTrigger);
+  useLayoutEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+  }, []);
+
   useGSAP(() => {
     gsap.fromTo(
       '.dark',
@@ -31,7 +34,7 @@ const ScrollReveal = () => {
       <div className="h-[200vh]" />
 
       <div className="fixed inset-0">
-        <div className="absolute inset-0 flex items-center justify-center gap-16 bg-[#f2f2f2]">
+        <div className="light absolute inset-0 flex items-center justify-center gap-16 bg-[#f2f2f2]">
           <div className="flex gap-3 items-center">
             <h1 className="text-6xl font-bold text-gray-900">
               Exclamation<span className="text-yellow-500">!</span> <br /> Art
@@ -43,7 +46,7 @@ const ScrollReveal = () => {
           </div>
         </div>
 
-        <div className="dark absolute inset-0 flex items-center justify-center gap-16 bg-gray-900">
+        <div className="dark absolute inset-0 flex items-center justify-center gap-16 bg-gray-900" style={{ clipPath: 'inset(0% 100% 0% 0%)' }}>
           <div className="flex gap-3 items-center">
             <h1 className="text-6xl font-bold text-[#f2f2f2]">
               Exclamation<span className="text-yellow-500">!</span> <br /> Art
