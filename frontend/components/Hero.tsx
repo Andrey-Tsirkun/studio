@@ -29,7 +29,8 @@ const Hero = () => {
       span.textContent = char.textContent || ""
       char.innerHTML = ""
       char.appendChild(span)
-      if (index === 0) char.classList.add("first-char")
+      if (index === 1) char.classList.add("x-char")
+      if (char.textContent === "!") char.classList.add("exclamation-char")
     })
 
     gsap.set(titleRef.current, { visibility: "visible" })
@@ -39,22 +40,38 @@ const Hero = () => {
       onComplete: () => console.log("Animation complete!"),
     })
 
+    // First animation - ALL letters appear from top to bottom (including x-char and exclamation-char)
     tl.to(splitText.chars.map(c => c.querySelector("span")), {
       y: "0%",
       duration: 0.75,
       stagger: 0.05,
     }, 0.5)
 
-    .to(splitText.chars.map(c => c.querySelector("span")), {
+    // Second animation - only regular letters disappear down (exclude x-char and exclamation-char)
+    .to(splitText.chars.map(c => c.querySelector("span")).filter(span => {
+      const char = span?.closest('.char')
+      return char && !char.classList.contains("x-char") && !char.classList.contains("exclamation-char") // exclude x and ! from disappearing
+    }), {
       y: "100%",
       duration: 0.75,
       stagger: 0.05,
-    }, 1.75)
+    }, 2) // 2 is the delay before the final animation starts
 
-    .to(preloaderRef.current, {
-      clipPath: "polygon(0% 48%, 100% 48%, 100% 52%, 0% 52%)",
-      duration: 1,
-    }, ">1")
+    // x-char animation
+    .to('.x-char', {
+      x: '35rem'
+    }, '>0.1')
+
+    // exclamation-char animation
+    .to('.x-char, .exclamation-char', {
+      fontSize: "40rem",
+      duration: 0.75,
+    }, '>0.1') // Start 0.5s after the previous animation (letters disappearing) completes
+
+    // .to(preloaderRef.current, {
+    //   clipPath: "polygon(0% 48%, 100% 48%, 100% 52%, 0% 52%)",
+    //   duration: 1,
+    // }, ">1")
 
     return () => {
       tl.kill()
@@ -67,7 +84,7 @@ const Hero = () => {
       <div ref={preloaderRef} className="preloader">
         <div className="intro-title absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center">
           <h1 ref={titleRef} className="uppercase text-8xl font-semibold leading-none invisible">
-            Nullspace Studio
+            Exclamation<span className="text-red-500">!</span> Art Studio
           </h1>
         </div>
       </div>
