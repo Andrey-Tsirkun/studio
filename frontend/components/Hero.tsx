@@ -29,9 +29,9 @@ const Hero = () => {
       });
 
       if (type.includes("chars")) {
-        splitText.chars.forEach((char, index) => {
-          const originalText = char.textContent;
-          char.innerHTML = `<span class="relative inline-block will-change-transform" style="transform: translateY(100%);">${originalText}</span>`;
+                  splitText.chars.forEach((char, index) => {
+            const originalText = char.textContent;
+            char.innerHTML = `<span class="relative inline-block will-change-transform" style="transform: translateY(-100%);">${originalText}</span>`;
 
           if (addFirstChar && index === 0) {
             char.classList.add("first-char");
@@ -53,6 +53,7 @@ const Hero = () => {
       onComplete: () => console.log("Animation complete!")
     });
 
+    // Letters appear from top to bottom (from -100% to 0%)
     tl.to(
       ".preloader .intro-title .char span",
       {
@@ -62,6 +63,7 @@ const Hero = () => {
       },
       0.5
     )
+    // Letters disappear down (from 0% to 100%)
     .to(
       ".preloader .intro-title .char span",
       {
@@ -71,6 +73,7 @@ const Hero = () => {
       },
       2
     )
+    // Final animation - closing preloader
     .to(
        ".preloader",
        {
@@ -85,7 +88,7 @@ const Hero = () => {
     <div className={`bg-black text-white fixed w-screen h-screen z-[2] ${dmSans.className}`}>
       <div className="preloader">
         <div className="intro-title absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center">
-          <h1 className="uppercase text-6xl font-semibold leading-none invisible">Nullspace Studio</h1>
+          <h1 className="uppercase text-8xl font-semibold leading-none invisible">Nullspace Studio</h1>
         </div>
       </div>
     </div>
