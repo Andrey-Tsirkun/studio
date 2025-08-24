@@ -45,7 +45,7 @@ const Hero = () => {
       y: "0%",
       duration: 0.75,
       stagger: 0.05,
-    }, 0.5)
+    }, 0.25)
 
     // Second animation - only regular letters disappear down (exclude x-char and exclamation-char)
     .to(splitText.chars.map(c => c.querySelector("span")).filter(span => {
@@ -55,7 +55,7 @@ const Hero = () => {
       y: "100%",
       duration: 0.75,
       stagger: 0.05,
-    }, 2) // 2 is the delay before the final animation starts
+    }, 1) // 1 is the delay before the final animation starts
 
     // x-char animation
     .to('.x-char', {
@@ -80,12 +80,14 @@ const Hero = () => {
   }, [])
 
   return (
-    <div className={`bg-black text-white fixed w-screen h-screen z-[2] ${dmSans.className}`}>
-      <div ref={preloaderRef} className="preloader">
-        <div className="intro-title absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center">
-          <h1 ref={titleRef} className="uppercase text-8xl font-semibold leading-none invisible">
-            Exclamation<span className="text-red-500">!</span> Art Studio
-          </h1>
+    <div>
+      <div className={`bg-black text-white relative w-screen h-screen z-[2] ${dmSans.className}`}>
+        <div ref={preloaderRef} className="preloader">
+          <div className="intro-title absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center">
+            <h1 ref={titleRef} className="uppercase text-8xl font-semibold leading-none invisible">
+              Exclamation<span className="text-red-500">!</span> Art Studio
+            </h1>
+          </div>
         </div>
       </div>
     </div>
