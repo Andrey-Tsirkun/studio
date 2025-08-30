@@ -17,7 +17,7 @@ interface SplitTextConstructor {
 
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
-export default function Copy({ children, animateOnScroll = true, delay = 0 }: { children: React.ReactNode, animateOnScroll?: boolean, delay?: number }) {
+const AnimatedText = ({ children, animateOnScroll = true, delay = 0 }: { children: React.ReactNode, animateOnScroll?: boolean, delay?: number }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const elementRefs = useRef<Element[]>([]);
   const splitRefs = useRef<SplitTextInstance[]>([]);
@@ -137,3 +137,4 @@ export default function Copy({ children, animateOnScroll = true, delay = 0 }: { 
     </div>
   );
 }
+export default AnimatedText;
