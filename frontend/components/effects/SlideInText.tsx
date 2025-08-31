@@ -9,6 +9,7 @@ interface Props {
   duration?: number;
   stagger?: number;
   className?: string;
+  onComplete?: () => void;
 }
 
 const SlideInText: React.FC<Props> = ({
@@ -16,7 +17,8 @@ const SlideInText: React.FC<Props> = ({
   delay = 0.25,
   duration = 0.75,
   stagger = 0.05,
-  className = ''
+  className = '',
+  onComplete
 }) => {
   const titleRef = useRef<HTMLHeadingElement>(null);
 
@@ -59,12 +61,17 @@ const SlideInText: React.FC<Props> = ({
       stagger: stagger,
     }, delay);
 
+    // Execute onComplete callback after animation finishes
+    if (onComplete) {
+      tl.call(onComplete);
+    }
+
     // Cleanup function
     return () => {
       tl.kill();
       splitText.revert(); // Return DOM to original state
     };
-  }, [delay, duration, stagger]);
+  }, [delay, duration, stagger, onComplete]);
 
   return (
     <div ref={titleRef} className={className}>

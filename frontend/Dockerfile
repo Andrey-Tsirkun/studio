@@ -11,7 +11,9 @@ RUN --mount=type=cache,target=/root/.npm \
     npm set cache /root/.npm && \
     npm cache verify
 
+# Copy package files first to leverage Docker cache
 COPY package*.json ./
+# Force rebuild of node_modules when package.json changes
 RUN --mount=type=cache,target=/root/.npm \
     npm install --legacy-peer-deps
 
