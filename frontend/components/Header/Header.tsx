@@ -5,7 +5,6 @@ import { AnimatePresence } from 'framer-motion';
 import Nav from './Nav';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import RoundedButton from '../common/RoundedButton';
 import Magnetic from '../common/Magnetic';
 
 const Header = () => {
@@ -33,32 +32,35 @@ const Header = () => {
 
   return (
     <>
-      <div ref={header} className="absolute flex z-[1] top-0 text-white p-[35px] justify-between w-full font-light box-border items-center">
+      <div ref={header} className="absolute flex z-[1] top-0 p-[35px] justify-end w-full font-light box-border items-center">
         <div className="flex items-center">
           <Magnetic>
             <div className="flex flex-col relative z-[1] p-[15px] cursor-pointer group">
-              <a className="cursor-pointer">Work</a>
-              <div className="absolute w-[5px] h-[5px] top-[45px] left-1/2 bg-white rounded-full scale-0 -translate-x-1/2 transition-transform duration-200 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:scale-100"></div>
+              <a className="cursor-pointer">WORK</a>
+              <div className="absolute w-[5px] h-[5px] top-[45px] left-1/2 bg-yellow-500 rounded-full scale-0 -translate-x-1/2 transition-transform duration-200 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:scale-100"></div>
             </div>
           </Magnetic>
           <Magnetic>
             <div className="flex flex-col relative z-[1] p-[15px] cursor-pointer group">
-              <a className="cursor-pointer">About</a>
-              <div className="absolute w-[5px] h-[5px] top-[45px] left-1/2 bg-white rounded-full scale-0 -translate-x-1/2 transition-transform duration-200 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:scale-100"></div>
+              <a className="cursor-pointer">ABOUT</a>
+              <div className="absolute w-[5px] h-[5px] top-[45px] left-1/2 bg-yellow-500 rounded-full scale-0 -translate-x-1/2 transition-transform duration-200 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:scale-100"></div>
             </div>
           </Magnetic>
           <Magnetic>
             <div className="flex flex-col relative z-[1] p-[15px] cursor-pointer group">
-              <a className="cursor-pointer">Contact</a>
-              <div className="absolute w-[5px] h-[5px] top-[45px] left-1/2 bg-white rounded-full scale-0 -translate-x-1/2 transition-transform duration-200 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:scale-100"></div>
+              <a className="cursor-pointer">CONTACT</a>
+              <div className="absolute w-[5px] h-[5px] top-[45px] left-1/2 bg-yellow-500 rounded-full scale-0 -translate-x-1/2 transition-transform duration-200 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:scale-100"></div>
             </div>
           </Magnetic>
         </div>
       </div>
       <div ref={button} className="scale-0 fixed right-0 z-[4]">
-        <RoundedButton onClick={() => { setIsActive(!isActive) }}>
-          <div className={`w-full relative z-[1] before:content-[''] before:block before:h-[1px] before:w-[40%] before:m-auto before:bg-white before:relative before:transition-transform before:duration-300 before:top-[5px] after:content-[''] after:block after:h-[1px] after:w-[40%] after:m-auto after:bg-white after:relative after:transition-transform after:duration-300 after:-top-[5px] ${isActive ? 'before:rotate-45 before:top-[-1px] after:rotate-[-45deg] after:top-0' : ''}`}></div>
-        </RoundedButton>
+        <div 
+          onClick={() => { setIsActive(!isActive) }}
+          className="relative m-5 w-20 h-20 rounded-full bg-[#1C1D20] cursor-pointer flex items-center justify-center"
+        >
+          <div className={`w-full relative z-[1] before:content-[''] before:block before:h-[1px] before:w-[40%] before:m-auto before:bg-white before:relative before:transition-transform before:duration-300 before:top-[5px] after:content-[''] after:block after:h-[1px] after:w-[40%] after:m-auto after:bg-white after:relative after:transition-transform after:duration-300 after:-top-[5px] ${isActive ? 'before:rotate-45 before:top-[-1px] after:rotate-[-45deg] after:top-0' : ''}`} />
+        </div>
       </div>
       <AnimatePresence mode="wait">
         {isActive && <Nav />}

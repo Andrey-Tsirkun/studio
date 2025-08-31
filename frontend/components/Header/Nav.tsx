@@ -40,19 +40,16 @@ const Nav = () => {
       >
        <div className="box-border h-full p-[100px] flex flex-col justify-between">
             <div onMouseLeave={() => {setSelectedIndicator(pathname)}} className="flex flex-col text-[56px] gap-3 mt-20">
-                    <div className="text-[rgb(153,153,153)] border-b border-[rgb(153,153,153)] uppercase text-[11px] mb-10">
-                        <p>Navigation</p>
-                    </div>
-                    {
-                      navItems.map( (data, index) => {
-                        return <NavLink 
-                        key={index} 
-                        data={{...data, index}} 
-                        isActive={selectedIndicator == data.href} 
-                        setSelectedIndicator={setSelectedIndicator}>
-                        </NavLink>
-                      })
-                    }
+              {
+                navItems.map( (data, index) => {
+                  return <NavLink 
+                  key={index} 
+                  data={{...data, index}} 
+                  isActive={selectedIndicator == data.href} 
+                  setSelectedIndicator={setSelectedIndicator}>
+                  </NavLink>
+                })
+              }
             </div>
             <Footer />
         </div>

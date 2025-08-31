@@ -6,6 +6,7 @@ import React, { useRef } from 'react';
 import SlideInText from './effects/SlideInText';
 import gsap from 'gsap';
 import Header from './Header/Header';
+import AnimatedBackground from './effects/AnimatedBackground';
 
 const Hero = () => {
   const fleekRef = useRef<HTMLDivElement>(null);
@@ -24,25 +25,24 @@ const Hero = () => {
   };
 
   return (
-    <>
+    <div className={`flex justify-between text-yellow-500 ${dmSans.className}`}>      
       <Header />
-    <div className="relative flex p-16 w-screen h-screen bg-gray-900 text-yellow-500">
-      <div className={`relative text-2xl ${dmSans.className}`}>
-        <AnimatedText animateOnScroll={false} delay={0}>
-          <h3>FUTURE</h3>
-          <h3>LOGIC</h3>
-          <h3>EMOTION</h3>
-          <h3>EXPERIENCE</h3>
-          <h3>KEY</h3>
-        </AnimatedText>
-      </div>
-      <div>
-        <div ref={fleekRef} className={`text-9xl font-semibold ${dmSans.className}`} >
+      <div className="relative flex p-16 bg-black w-screen h-screen">
+        <div className="relative text-2xl">
+          <AnimatedText animateOnScroll={false} delay={0}>
+            <h3>FUTURE</h3>
+            <h3>LOGIC</h3>
+            <h3>EMOTION</h3>
+            <h3>EXPERIENCE</h3>
+            <h3>KUDOS</h3>
+          </AnimatedText>
+        </div>
+        <div ref={fleekRef} className="text-11xl font-semibold" >
           <SlideInText onComplete={handleComplete}>FLEEK</SlideInText>
         </div>
-        </div>
+        <AnimatedBackground />
       </div>
-    </>
+  </div>
   )
 }
 
