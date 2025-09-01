@@ -1,5 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion';
+import styles from '../../styles/components/NavCurve.module.scss';
 
 const NavCurve = () => {
 
@@ -21,7 +22,7 @@ const NavCurve = () => {
   }
 
   return (
-    <svg className="absolute top-0 -left-[99px] w-[100px] h-full fill-[rgb(41,41,41)] stroke-none">
+    <svg className={styles.navCurve}>
         <motion.path variants={curve} initial="initial" animate="enter" exit="exit"></motion.path>
     </svg>
   )

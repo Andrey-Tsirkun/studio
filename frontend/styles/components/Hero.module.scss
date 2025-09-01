@@ -1,0 +1,30 @@
+// Hero component styles
+
+.heroContainer {
+  display: flex;
+  justify-content: space-between;
+  color: #eab308;
+}
+
+.hero {
+  position: relative;
+  display: flex;
+  padding: 64px;
+  background-color: black;
+  width: 100vw;
+  height: 100vh;
+}
+
+.textContainer {
+  position: relative;
+  font-size: 24px;
+}
+
+.title {
+  font-size: 12rem; // text-11xl equivalent
+  font-weight: 600;
+}
+
+.line {
+  align-self: flex-end;
+}

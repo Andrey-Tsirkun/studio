@@ -5,6 +5,7 @@ import { menuSlide } from './animation';
 import NavLink from './NavLink';
 import Curve from './NavCurve';
 import Footer from './NavFooter';
+import styles from '../../styles/components/Nav.module.scss';
 
 const navItems = [
   {
@@ -36,10 +37,10 @@ const Nav = () => {
       initial="initial" 
       animate="enter" 
       exit="exit" 
-      className="h-screen bg-[rgb(41,41,41)] fixed right-0 top-0 text-white z-[3]"
+      className={styles.nav}
       >
-       <div className="box-border h-full p-[100px] flex flex-col justify-between">
-            <div onMouseLeave={() => {setSelectedIndicator(pathname)}} className="flex flex-col text-[56px] gap-3 mt-20">
+       <div className={styles.navContainer}>
+            <div onMouseLeave={() => {setSelectedIndicator(pathname)}} className={styles.navItems}>
               {
                 navItems.map( (data, index) => {
                   return <NavLink 

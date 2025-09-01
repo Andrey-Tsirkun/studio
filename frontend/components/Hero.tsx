@@ -1,12 +1,12 @@
 "use client"
 
-import { dmSans } from '@/utils/typography';
 import AnimatedText from './effects/AnimatedText';
 import React, { useRef } from 'react';
 import SlideInText from './effects/SlideInText';
 import gsap from 'gsap';
 import Header from './Header/Header';
 import AnimatedBackground from './effects/AnimatedBackground';
+import styles from '../styles/components/Hero.module.scss';
 
 const Hero = () => {
   const fleekRef = useRef<HTMLDivElement>(null);
@@ -25,10 +25,10 @@ const Hero = () => {
   };
 
   return (
-    <div className={`flex justify-between text-yellow-500 ${dmSans.className}`}>      
+    <div className={`${styles.heroContainer}`}>      
       <Header />
-      <div className="relative flex p-16 bg-black w-screen h-screen">
-        <div className="relative text-2xl">
+      <div className={styles.hero}>
+        <div className={styles.textContainer}>
           <AnimatedText animateOnScroll={false} delay={0}>
             <h3>FUTURE</h3>
             <h3>LOGIC</h3>
@@ -37,10 +37,10 @@ const Hero = () => {
             <h3>KUDOS</h3>
           </AnimatedText>
         </div>
-        <div ref={fleekRef} className="text-11xl font-semibold" >
+        <div ref={fleekRef} className={styles.title} >
           <SlideInText onComplete={handleComplete}>FLEEK</SlideInText>
         </div>
-        <AnimatedBackground />
+        {/* <AnimatedBackground /> */}
       </div>
   </div>
   )

@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import styles from '../../styles/components/AnimatedBackground.module.scss';
 
 // Type declaration for FinisherHeader
 declare global {
@@ -65,7 +66,7 @@ const AnimatedBackground = () => {
   }, [])
 
   return (
-    <div className="finisher-header absolute inset-0 w-full h-full z-1" />
+    <div className={`finisher-header ${styles.background}`} />
   );
 };
 

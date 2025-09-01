@@ -1,0 +1,33 @@
+// Navigation component styles
+
+.nav {
+  height: 100vh;
+  background-color: rgb(41, 41, 41);
+  position: fixed;
+  right: 0;
+  top: 0;
+  color: white;
+  z-index: 3;
+}
+
+.navContainer {
+  box-sizing: border-box;
+  height: 100%;
+  padding: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.navItems {
+  display: flex;
+  flex-direction: column;
+  font-size: 56px;
+  gap: 12px;
+  margin-top: 80px;
+  font-family: var(--font-dm-sans), sans-serif;
+  
+  &:hover {
+    // Reset indicator when leaving nav items area
+  }
+}

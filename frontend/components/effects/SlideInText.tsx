@@ -2,6 +2,7 @@ import React, { useLayoutEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { CustomEase } from 'gsap/CustomEase';
 import { SplitText } from 'gsap/SplitText';
+import styles from '../../styles/components/SlideInText.module.scss';
 
 interface Props {
   children: React.ReactNode;
@@ -32,14 +33,14 @@ const SlideInText: React.FC<Props> = ({
     // Split text into characters
     const splitText = new SplitText(titleRef.current, {
       type: "words,chars",
-      wordsClass: "word",
-      charsClass: "char relative inline-block overflow-hidden",
+      wordsClass: styles.word,
+      charsClass: styles.char,
     });
 
     // Create spans for each character and set initial position
     splitText.chars.forEach((char) => {
       const span = document.createElement("span");
-      span.className = "relative inline-block will-change-transform";
+      span.className = styles.characterSpan;
       span.style.transform = "translateY(-100%)";
       span.textContent = char.textContent || "";
       char.innerHTML = "";

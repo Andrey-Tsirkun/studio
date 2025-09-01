@@ -5,6 +5,7 @@ import gsap from "gsap"
 import { CustomEase } from "gsap/CustomEase"
 import { SplitText } from "gsap/SplitText"
 import { dmSans } from "../utils/typography"
+import styles from '../styles/components/OldHero.module.scss';
 
 const OldHero = () => {
   const titleRef = useRef<HTMLHeadingElement>(null)
@@ -166,36 +167,34 @@ const OldHero = () => {
     <div>
       {/* Preloader */}
       <div ref={preloaderRef} className={`preloader fixed w-screen h-screen bg-[#0a0a0a] text-white z-[2] ${dmSans.className}`}>
-        <div className="intro-title absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center">
-          <h1 ref={titleRef} className="uppercase text-8xl font-semibold leading-none invisible">
-            Exclamation<span className="text-red-500">!</span> Art Studio
+        <div className={styles.introTitle}>
+          <h1 ref={titleRef} className={`${styles.title} invisible`}>
+            Exclamation<span className={styles.accent}>!</span> Art Studio
           </h1>
         </div>
       </div>
 
       {/* Split Overlay */}
-      <div ref={splitOverlayRef} className="split-overlay fixed w-screen h-screen bg-[#0a0a0a] text-white z-[1]">
-        <div className="split-intro-title absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center">
-          <h1 className="uppercase text-8xl font-semibold leading-none">Exclamation Art Studio</h1>
+      <div ref={splitOverlayRef} className={styles.splitOverlay}>
+        <div className={styles.splitIntroTitle}>
+          <h1 className={styles.splitTitle}>Exclamation Art Studio</h1>
         </div>
-        <div className="split-outro-title absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" style={{ left: 'calc(50% + 10rem)' }}>
-          <h1 className="uppercase text-8xl font-semibold leading-none">!</h1>
+                <div className={styles.splitIntroTitleRight}>
+          <h1 className={styles.splitTitle}>!</h1>
         </div>
       </div>
 
       {/* Main Container */}
       <div 
         ref={containerRef}
-        className="container relative w-full h-full min-h-screen flex flex-col justify-between z-[2]" 
-        style={{ clipPath: 'polygon(0% 48%, 0% 48%, 0% 52%, 0% 52%)' }}
+        className={styles.container}
       >
 
         {/* Card */}
         <div 
-          className="card absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[30%] h-[70%] flex justify-center items-center bg-white" 
-          style={{ clipPath: 'polygon(0% 50%, 100% 50%, 100% 50%, 0% 50%)' }}
+          className={styles.card}
         >
-          <h1 className="text-center w-full text-5xl uppercase font-semibold text-black">Exclamation</h1>
+          <h1 className={styles.cardTitle}>Exclamation</h1>
         </div>
       </div>
     </div>

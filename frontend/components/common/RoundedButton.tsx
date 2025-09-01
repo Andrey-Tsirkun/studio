@@ -2,6 +2,7 @@ import React from 'react'
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import Magnetic from './Magnetic';
+import styles from '../../styles/components/RoundedButton.module.scss';
 
 interface RoundedButtonProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
@@ -13,7 +14,6 @@ const RoundedButton = ({children, backgroundColor="#455CE9", ...attributes}: Rou
   const circle = useRef<HTMLDivElement>(null);
   const timeline = useRef<gsap.core.Timeline | null>(null);
   let timeoutId: NodeJS.Timeout | null = null;
-  
   useEffect( () => {
     timeline.current = gsap.timeline({paused: true})
     timeline.current
@@ -23,9 +23,9 @@ const RoundedButton = ({children, backgroundColor="#455CE9", ...attributes}: Rou
   
   const manageMouseEnter = () => {
     if(timeoutId) clearTimeout(timeoutId)
-    if (timeline.current) {
-      timeline.current.tweenFromTo('enter', 'exit');
-    }
+      if (timeline.current) {
+        timeline.current.tweenFromTo('enter', 'exit');
+      }
   }
 
   const manageMouseLeave = () => {
@@ -38,20 +38,11 @@ const RoundedButton = ({children, backgroundColor="#455CE9", ...attributes}: Rou
 
   return (
     <Magnetic>
-      <div 
-        className="rounded-[3em] border border-gray-400 cursor-pointer relative flex items-center justify-center px-15 py-4 overflow-hidden" 
-        onMouseEnter={manageMouseEnter} 
-        onMouseLeave={manageMouseLeave} 
-        {...attributes}
-      >
-        <div className="relative z-10 transition-colors duration-400 group-hover:text-white">
-          {children}
-        </div>
-        <div 
-          ref={circle} 
-          style={{backgroundColor}} 
-          className="w-full h-[150%] absolute rounded-full top-full"
-        ></div>
+      <div className={styles.roundedButton} style={{overflow: "hidden"}} onMouseEnter={() => {manageMouseEnter()}} onMouseLeave={() => {manageMouseLeave()}} {...attributes}>
+          {
+            children
+          }
+        <div ref={circle} style={{backgroundColor}} className={styles.circle}></div>
       </div>
     </Magnetic>
   )

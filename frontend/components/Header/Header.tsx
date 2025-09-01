@@ -6,66 +6,72 @@ import Nav from './Nav';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Magnetic from '../common/Magnetic';
+import styles from '../../styles/components/Header.module.scss';
+import RoundedButton from '../common/RoundedButton';
 
 const Header = () => {
   const header = useRef(null);
   const [isActive, setIsActive] = useState(false);
   const pathname = usePathname();
   const button = useRef(null);
-
-  useEffect(() => {
-    if (isActive) setIsActive(false)
+  useEffect( () => {
+    if(isActive) setIsActive(false)
   }, [pathname])
 
-  useLayoutEffect(() => {
-    gsap.registerPlugin(ScrollTrigger)
-    gsap.to(button.current, {
-      scrollTrigger: {
-        trigger: document.documentElement,
-        start: 0,
-        end: window.innerHeight,
-        onLeave: () => { gsap.to(button.current, { scale: 1, duration: 0.25, ease: "power1.out" }) },
-        onEnterBack: () => { gsap.to(button.current, { scale: 0, duration: 0.25, ease: "power1.out" }).then(() => setIsActive(false)) }
-      }
-    })
+  useLayoutEffect( () => {
+      gsap.registerPlugin(ScrollTrigger)
+      gsap.to(button.current, {
+          scrollTrigger: {
+              trigger: document.documentElement,
+              start: 0,
+              end: window.innerHeight,
+              onLeave: () => {gsap.to(button.current, {scale: 1, duration: 0.25, ease: "power1.out"})},
+              onEnterBack: () => {gsap.to(button.current, {scale: 0, duration: 0.25, ease: "power1.out"}).then(() => setIsActive(false))}
+          }
+      })
   }, [])
 
   return (
-    <>
-      <div ref={header} className="absolute flex z-[1] top-0 p-[35px] justify-end w-full font-light box-border items-center">
-        <div className="flex items-center">
-          <Magnetic>
-            <div className="flex flex-col relative z-[1] p-[15px] cursor-pointer group">
-              <a className="cursor-pointer">WORK</a>
-              <div className="absolute w-[5px] h-[5px] top-[45px] left-1/2 bg-yellow-500 rounded-full scale-0 -translate-x-1/2 transition-transform duration-200 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:scale-100"></div>
-            </div>
-          </Magnetic>
-          <Magnetic>
-            <div className="flex flex-col relative z-[1] p-[15px] cursor-pointer group">
-              <a className="cursor-pointer">ABOUT</a>
-              <div className="absolute w-[5px] h-[5px] top-[45px] left-1/2 bg-yellow-500 rounded-full scale-0 -translate-x-1/2 transition-transform duration-200 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:scale-100"></div>
-            </div>
-          </Magnetic>
-          <Magnetic>
-            <div className="flex flex-col relative z-[1] p-[15px] cursor-pointer group">
-              <a className="cursor-pointer">CONTACT</a>
-              <div className="absolute w-[5px] h-[5px] top-[45px] left-1/2 bg-yellow-500 rounded-full scale-0 -translate-x-1/2 transition-transform duration-200 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:scale-100"></div>
-            </div>
-          </Magnetic>
-        </div>
+      <>
+      <div ref={header} className={styles.header}>
+          <div className={styles.logo}>
+              <p className={styles.copyright}>©</p>
+              <div className={styles.name}>
+                  <p className={styles.codeBy}>Code by</p>
+                  <p className={styles.dennis}>Dennis</p>
+                  <p className={styles.snellenberg}>Snellenberg</p>
+              </div>
+          </div>
+          <div className={styles.nav}>
+              <Magnetic>
+                  <div className={styles.el}>
+                      <a>Work</a>
+                      <div className={styles.indicator}></div>
+                  </div>
+              </Magnetic>
+              <Magnetic>
+                  <div className={styles.el}>
+                      <a>About</a>
+                      <div className={styles.indicator}></div>
+                  </div>
+              </Magnetic>
+              <Magnetic>
+                  <div className={styles.el}>
+                      <a>Contact</a>
+                      <div className={styles.indicator}></div>
+                  </div>
+              </Magnetic>
+          </div>
       </div>
-      <div ref={button} className="scale-0 fixed right-0 z-[4]">
-        <div 
-          onClick={() => { setIsActive(!isActive) }}
-          className="relative m-5 w-20 h-20 rounded-full bg-[#1C1D20] cursor-pointer flex items-center justify-center"
-        >
-          <div className={`w-full relative z-[1] before:content-[''] before:block before:h-[1px] before:w-[40%] before:m-auto before:bg-white before:relative before:transition-transform before:duration-300 before:top-[5px] after:content-[''] after:block after:h-[1px] after:w-[40%] after:m-auto after:bg-white after:relative after:transition-transform after:duration-300 after:-top-[5px] ${isActive ? 'before:rotate-45 before:top-[-1px] after:rotate-[-45deg] after:top-0' : ''}`} />
-        </div>
+      <div ref={button} className={styles.headerButtonContainer}>
+          <RoundedButton onClick={() => {setIsActive(!isActive)}} className={`${styles.button}`}>
+              <div className={`${styles.burger} ${isActive ? styles.burgerActive : ""}`}></div>
+          </RoundedButton>
       </div>
       <AnimatePresence mode="wait">
-        {isActive && <Nav />}
+          {isActive && <Nav />}
       </AnimatePresence>
-    </>
+      </>
   )
 }
 

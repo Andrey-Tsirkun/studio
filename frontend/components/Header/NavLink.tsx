@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { slide, scale } from './animation';
+import styles from '../../styles/components/NavLink.module.scss';
 
 const NavLink = ({data, isActive, setSelectedIndicator}: {data: {title: string, href: string, index: number}, isActive: boolean, setSelectedIndicator: (href: string) => void}) => {
   
@@ -8,7 +9,7 @@ const NavLink = ({data, isActive, setSelectedIndicator}: {data: {title: string, 
   
     return (
       <motion.div 
-        className="relative flex items-center" 
+        className={styles.navLink} 
         onMouseEnter={() => {setSelectedIndicator(href)}} 
         custom={index} 
         variants={slide} 
@@ -19,7 +20,7 @@ const NavLink = ({data, isActive, setSelectedIndicator}: {data: {title: string, 
         <motion.div 
           variants={scale} 
           animate={isActive ? "open" : "closed"} 
-          className="w-[10px] h-[10px] bg-white rounded-full absolute -left-[30px]">
+          className={styles.indicator}>
         </motion.div>
         <Link href={href}>{title}</Link>
       </motion.div>

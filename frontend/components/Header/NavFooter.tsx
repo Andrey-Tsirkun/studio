@@ -1,6 +1,8 @@
+import styles from '../../styles/components/NavFooter.module.scss';
+
 const NavFooter = () => {
   return (
-    <div className="flex w-full justify-between text-xs gap-10">
+    <div className={styles.navFooter}>
         <a>Awwwards</a>
         <a>Instagram</a>
         <a>Dribble</a>

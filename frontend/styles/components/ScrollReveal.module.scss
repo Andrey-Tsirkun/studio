@@ -1,0 +1,83 @@
+// Scroll reveal component styles
+
+.spacer {
+  height: 200vh;
+}
+
+.container {
+  position: relative;
+}
+
+.fixedContainer {
+  position: fixed;
+  inset: 0;
+}
+
+.light {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 64px;
+  background-color: #f2f2f2;
+}
+
+.contentContainer {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.title {
+  font-size: 60px; // text-6xl
+  font-weight: 700;
+  color: #111827; // gray-900
+}
+
+.titleLight {
+  @extend .title;
+  color: #111827; // gray-900
+}
+
+.titleDark {
+  @extend .title;
+  color: #f2f2f2;
+}
+
+.accent {
+  color: #eab308; // yellow-500
+}
+
+.divider {
+  width: 12px;
+  height: 224px; // h-56
+  background-color: #111827; // gray-900
+}
+
+.dividerDark {
+  @extend .divider;
+  background-color: #f2f2f2;
+}
+
+.titleEnd {
+  @extend .title;
+  align-self: flex-end;
+  color: #111827; // gray-900
+}
+
+.titleEndDark {
+  @extend .titleEnd;
+  color: #f2f2f2;
+}
+
+.dark {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 64px;
+  background-color: #111827; // gray-900
+  clip-path: inset(0% 100% 0% 0%);
+}

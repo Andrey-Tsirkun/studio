@@ -5,6 +5,7 @@ import { useGSAP } from '@gsap/react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Copy from './effects/AnimatedText';
+import styles from '../styles/components/ScrollReveal.module.scss';
 
 const ScrollReveal = () => {
   useLayoutEffect(() => {
@@ -31,19 +32,19 @@ const ScrollReveal = () => {
   });
 
   return (
-    <div className="relative">
-      <div className="h-[200vh]" />
+    <div className={styles.container}>
+      <div className={styles.spacer} />
 
-      <div className="fixed inset-0">
-        <div className="light absolute inset-0 flex items-center justify-center gap-16 bg-[#f2f2f2]">
-          <div className="flex gap-3 items-center">
-            <h1 className="text-6xl font-bold text-gray-900">
+      <div className={styles.fixedContainer}>
+        <div className={`light ${styles.light}`}>
+          <div className={styles.contentContainer}>
+            <h1 className={styles.titleLight}>
               <Copy animateOnScroll={false} delay={1}>
-                <span>Exclamation<span className="text-yellow-500">!</span> <br /> Art</span>
+                <span>Exclamation<span className={styles.accent}>!</span> <br /> Art</span>
               </Copy>
             </h1>
-            <span className="w-3 h-56 bg-gray-900" />
-            <h1 className="text-6xl self-end font-bold text-gray-900">
+            <span className={styles.divider} />
+            <h1 className={styles.titleEnd}>
               <Copy animateOnScroll={false} delay={1.5}>
                 <span>Studio</span>
               </Copy>
@@ -51,13 +52,13 @@ const ScrollReveal = () => {
           </div>
         </div>
 
-        <div className="dark absolute inset-0 flex items-center justify-center gap-16 bg-gray-900" style={{ clipPath: 'inset(0% 100% 0% 0%)' }}>
-          <div className="flex gap-3 items-center">
-            <h1 className="text-6xl font-bold text-[#f2f2f2]">
-              Exclamation<span className="text-yellow-500">!</span> <br /> Art
+        <div className={`dark ${styles.dark}`}>
+          <div className={styles.contentContainer}>
+            <h1 className={styles.titleDark}>
+              Exclamation<span className={styles.accent}>!</span> <br /> Art
             </h1>
-            <span className="w-3 h-56 bg-[#f2f2f2]" />
-            <h1 className="text-6xl self-end font-bold text-[#f2f2f2]">
+            <span className={styles.dividerDark} />
+            <h1 className={styles.titleEndDark}>
               Studio
             </h1>
           </div>
