@@ -1,108 +1,49 @@
-// Header component styles
-
-.header {
-  position: absolute;
-  display: flex;
+.header{
+  flex: 1;
   z-index: 1;
-  top: 0;
-  padding: 35px;
+  display: flex;
   justify-content: flex-end;
   width: 100%;
-  font-weight: 300;
+  height: 100%;
   box-sizing: border-box;
-  align-items: center;
-}
+  align-items: flex-start;
+  font-family: var(--font-dm-sans), sans-serif;
+  font-weight: 700;
 
-.nav {
-  display: flex;
-  align-items: center;
-}
+  .nav{
+      display: flex;
+      align-items: center;
 
-.navItem {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  z-index: 1;
-  padding: 15px;
-  cursor: pointer;
-  
-  &:hover .indicator {
-    transform: scale(1);
-  }
-  
-  a {
-    cursor: pointer;
-  }
-}
+      .el{
+          display: flex;
+          flex-direction: column;
+          position: relative;
+          z-index: 1;
+          padding: 0 15px;
+          cursor: pointer;
+          &:hover{
+              .indicator{
+                  transform: scale(1);
+              }
+          }
 
-.indicator {
-  position: absolute;
-  width: 5px;
-  height: 5px;
-  top: 45px;
-  left: 50%;
-  background-color: #eab308; // yellow-500
-  border-radius: 50%;
-  transform: scale(0) translateX(-50%);
-  transition: transform 0.2s cubic-bezier(0.76, 0, 0.24, 1);
-}
+          .indicator{
+              position: absolute;
+              width: 5px;
+              height: 5px;
+              top: 30px;
+              left: 50%;
+              background-color: #eab308;
+              border-radius: 50%;
+              transform: scale(0) translateX(-50%);
+              transition: transform 0.2s cubic-bezier(0.76, 0, 0.24, 1);
+          }
+      }
 
-.burgerButton {
-  position: relative;
-  margin: 20px;
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  background-color: #1C1D20;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.burgerContainer {
-  transform: scale(0);
-  position: fixed;
-  right: 0;
-  z-index: 4;
-}
-
-.burgerIcon {
-  width: 100%;
-  position: relative;
-  z-index: 1;
-  
-  &::before,
-  &::after {
-    content: '';
-    display: block;
-    height: 1px;
-    width: 40%;
-    margin: auto;
-    background-color: white;
-    position: relative;
-    transition: transform 0.3s ease;
-  }
-  
-  &::before {
-    top: 5px;
-  }
-  
-  &::after {
-    top: -5px;
-  }
-  
-  &.active {
-    &::before {
-      transform: rotate(45deg);
-      top: -1px;
-    }
-    
-    &::after {
-      transform: rotate(-45deg);
-      top: 0;
-    }
-  }
+      a {
+          cursor: pointer;
+      }
+  } 
 }
 
 .headerButtonContainer{
@@ -128,6 +69,7 @@
       width: 100%;
       position: relative;
       z-index: 1;
+
       &::after, &::before{
           content: "";
           display: block;
@@ -148,8 +90,7 @@
       }
   }
   
-  .burgerActive{
-  
+  .burgerActive{  
       &::after{
           transform: rotate(45deg);
           top: -1px;

@@ -2,9 +2,9 @@
 import React, { useRef } from "react";
 
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
 import { useGSAP } from "@gsap/react";
+import styles from '../../styles/components/AnimatedText.module.scss';
 
 interface SplitTextInstance {
   lines: HTMLElement[];
@@ -15,7 +15,7 @@ interface SplitTextConstructor {
   create: (element: Element, options: Record<string, unknown>) => SplitTextInstance;
 }
 
-gsap.registerPlugin(SplitText, ScrollTrigger);
+gsap.registerPlugin(SplitText);
 
 const AnimatedText = ({ children, animateOnScroll = true, delay = 0 }: { children: React.ReactNode, animateOnScroll?: boolean, delay?: number }) => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -69,7 +69,7 @@ const AnimatedText = ({ children, animateOnScroll = true, delay = 0 }: { childre
           const split = (SplitText as unknown as SplitTextConstructor).create(element, {
             type: "lines",
             mask: "lines",
-            linesClass: "line++",
+            linesClass: `line++ ${styles.line}`,
             lineThreshold: 0.1,
           });
 
@@ -88,6 +88,11 @@ const AnimatedText = ({ children, animateOnScroll = true, delay = 0 }: { childre
           }
 
           lines.current.push(...split.lines);
+        });
+
+        // override text-align
+        lines.current.forEach(line => {
+          line.style.textAlign = 'end';
         });
 
         gsap.set(lines.current, { y: "100%" });

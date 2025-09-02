@@ -15,34 +15,35 @@ const Hero = () => {
     if (fleekRef.current) {
       // Scale up animation for the FLEEK text
       gsap.to(fleekRef.current, {
-        scale: 1.1,
         duration: 0.8,
-        ease: "power2.out",
-        yoyo: true,
-        repeat: 1
+        ease: "power1.out",
+        repeat: 1,
+        yoyo: true
       });
     }
   };
 
   return (
-    <div className={`${styles.heroContainer}`}>      
-      <Header />
-      <div className={styles.hero}>
-        <div className={styles.textContainer}>
-          <AnimatedText animateOnScroll={false} delay={0}>
-            <h3>FUTURE</h3>
-            <h3>LOGIC</h3>
-            <h3>EMOTION</h3>
-            <h3>EXPERIENCE</h3>
-            <h3>KUDOS</h3>
-          </AnimatedText>
+    <>
+      <div className={`${styles.heroContainer}`}>      
+        <div className={styles.hero}>      
+          <div className={styles.textContainer}>
+            <AnimatedText animateOnScroll={false} delay={0}>
+              <h3 className={styles.direction}>FUTURE</h3>
+              <h3 className={styles.direction}>LOGIC</h3>
+              <h3 className={styles.direction}>EMOTION</h3>
+              <h3 className={styles.direction}>EXPERIENCE</h3>
+              <h3 className={styles.direction}>KUDOS</h3>
+            </AnimatedText>
+          </div>
+          <div ref={fleekRef} className={styles.title} >
+            <SlideInText onComplete={handleComplete}>FLEEK</SlideInText>
+          </div>
+          <Header />        
         </div>
-        <div ref={fleekRef} className={styles.title} >
-          <SlideInText onComplete={handleComplete}>FLEEK</SlideInText>
-        </div>
-        {/* <AnimatedBackground /> */}
-      </div>
-  </div>
+    </div>
+    {/* <AnimatedBackground /> */}
+  </>
   )
 }
 

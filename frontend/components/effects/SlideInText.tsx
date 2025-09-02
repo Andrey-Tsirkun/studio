@@ -17,7 +17,7 @@ const SlideInText: React.FC<Props> = ({
   children,
   delay = 0.25,
   duration = 0.75,
-  stagger = 0.05,
+  stagger = 0.25,
   className = '',
   onComplete
 }) => {

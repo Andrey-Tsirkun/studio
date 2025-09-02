@@ -4,12 +4,16 @@
   position: relative;
   display: flex;
   align-items: center;
+  a {
+    color: #eab308;
+    text-decoration: none;
+  }
 }
 
 .indicator {
   width: 10px;
   height: 10px;
-  background-color: white;
+  background-color: #eab308;
   border-radius: 50%;
   position: absolute;
   left: -30px;
