@@ -13,18 +13,21 @@
   padding: 64px;
   width: 100vw;
   height: 100vh;
-  align-items: flex-end;
 }
 
 .textContainer {
   position: relative;
   font-size: 24px;
+  display: flex;
+  align-items: flex-end;
 }
 
 .title {
   font-size: 290px;
   font-weight: 600;
   line-height: 0.8;
+  display: flex;
+  align-items: flex-end;
 }
 
 .direction {
