@@ -1,5 +1,19 @@
 // Hero component styles
 
+.heroWrapper {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+.bgWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
 .heroContainer {
   display: flex;
   justify-content: space-between;  
@@ -20,6 +34,7 @@
   font-size: 24px;
   display: flex;
   align-items: flex-end;
+  z-index: 1;
 }
 
 .title {
@@ -28,6 +43,7 @@
   line-height: 0.8;
   display: flex;
   align-items: flex-end;
+  z-index: 1;
 }
 
 .direction {

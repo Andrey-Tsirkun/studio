@@ -23,7 +23,6 @@ services:
       - ./frontend/next-env.d.ts:/app/next-env.d.ts
       - ./frontend/package.json:/app/package.json
       - nextjs_build_cache:/app/.next
-      - nextjs_node_modules:/app/node_modules
     ports:
       - "3000:3000"
     environment:
@@ -86,6 +85,5 @@ networks:
 volumes:
   postgres_data:
   nextjs_build_cache:
-  nextjs_node_modules:
   strapi_node_modules:
   strapi_build_cache: 

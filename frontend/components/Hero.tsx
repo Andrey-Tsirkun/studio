@@ -5,8 +5,8 @@ import React, { useRef } from 'react';
 import SlideInText from './effects/SlideInText';
 import gsap from 'gsap';
 import Header from './Header/Header';
-import AnimatedBackground from './effects/AnimatedBackground';
 import styles from '../styles/components/Hero.module.scss';
+import Beams from './effects/BeamsComponent';
 
 const Hero = () => {
   const fleekRef = useRef<HTMLDivElement>(null);
@@ -24,7 +24,7 @@ const Hero = () => {
   };
 
   return (
-    <>
+    <div className={styles.heroWrapper}>
       <div className={`${styles.heroContainer}`}>      
         <div className={styles.hero}>      
           <div className={styles.textContainer}>
@@ -42,8 +42,19 @@ const Hero = () => {
           <Header />        
         </div>
     </div>
-    {/* <AnimatedBackground /> */}
-  </>
+    <div className={styles.bgWrapper}>
+      <Beams
+        beamWidth={2}
+        beamHeight={15}
+        beamNumber={12}
+        lightColor="#ffffff"
+        speed={2}
+        noiseIntensity={1.75}
+        scale={0.2}
+        rotation={45}
+      />
+    </div>
+  </div>
   )
 }
 
