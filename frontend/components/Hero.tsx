@@ -1,41 +1,74 @@
 "use client"
 
 import AnimatedText from './effects/AnimatedText';
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import gsap from 'gsap';
 import Header from './Header/Header';
 import styles from '../styles/components/Hero.module.scss';
 import LiquidEther from './effects/LiquidEther';
-import SplitText from './common/SplitText';
 
 const Hero = () => {
+  const directionArray = [
+    "FUTURE",
+    "LOGIC",
+    "EMOTION",
+    "EXPERIENCE",
+    "KUDOS"
+  ];
+  
+  const directionRefs = useRef<(HTMLHeadingElement | null)[]>([]);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+
+  useEffect(() => {
+    // Animate directions
+    directionRefs.current.forEach((ref, index) => {
+      if (ref) {
+        gsap.fromTo(ref, 
+          { opacity: 0, y: 40 },
+          { 
+            opacity: 1, 
+            y: 0, 
+            duration: 0.6, 
+            ease: "elastic.out(1, 0.3)",
+            delay: index * 0.2
+          }
+        );
+      }
+    });
+
+    // Animate title
+    if (titleRef.current) {
+      gsap.fromTo(titleRef.current,
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          ease: "elastic.out(1, 0.3)",
+          delay: 1.0
+        }
+      );
+    }
+  }, []);
   
   return (
     <div className={styles.heroWrapper}>
       <div className={styles.heroContainer}>
         <div className={styles.hero}>
           <div className={styles.textContainer}>
-            <AnimatedText animateOnScroll={false} delay={0}>
-              <h3 className={styles.direction}>FUTURE</h3>
-              <h3 className={styles.direction}>LOGIC</h3>
-              <h3 className={styles.direction}>EMOTION</h3>
-              <h3 className={styles.direction}>EXPERIENCE</h3>
-              <h3 className={styles.direction}>KUDOS</h3>
-            </AnimatedText>
+            {directionArray.map((text, index) => (
+              <h3 
+                key={index} 
+                ref={(el) => { directionRefs.current[index] = el; }}
+                className={styles.direction}
+              >
+                {text}
+              </h3>
+            ))}
           </div>
-          <SplitText
-            text="FLEEK"
-            className={styles.title}
-            delay={100}
-            duration={0.6}
-            ease="elastic.out(1, 0.3)"
-            splitType="chars"
-            from={{ opacity: 0, y: 40 }}
-            to={{ opacity: 1, y: 0 }}
-            threshold={0.1}
-            rootMargin="-100px"
-            textAlign="center"
-          />
+          <h1 ref={titleRef} className={styles.title}>
+            FLEEK
+          </h1>
         </div>
       </div>
       <Header />
