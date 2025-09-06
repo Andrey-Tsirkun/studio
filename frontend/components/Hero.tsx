@@ -53,23 +53,21 @@ const Hero = () => {
   
   return (
     <div className={styles.heroWrapper}>
-      <div className={styles.heroContainer}>
-        <div className={styles.hero}>
-          <div className={styles.textContainer}>
-            {directionArray.map((text, index) => (
-              <h3 
-                key={index} 
-                ref={(el) => { directionRefs.current[index] = el; }}
-                className={styles.direction}
-              >
-                {text}
-              </h3>
-            ))}
-          </div>
-          <h1 ref={titleRef} className={styles.title}>
-            FLEEK
-          </h1>
+      <div className={styles.hero}>
+        <div className={styles.textContainer}>
+          {directionArray.map((text, index) => (
+            <h3 
+              key={index} 
+              ref={(el) => { directionRefs.current[index] = el; }}
+              className={styles.direction}
+            >
+              {text}
+            </h3>
+          ))}
         </div>
+        <h1 ref={titleRef} className={styles.title}>
+          FLEEK
+        </h1>
       </div>
       <Header />
       <LiquidEther
