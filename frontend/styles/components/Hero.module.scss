@@ -4,29 +4,30 @@
   position: relative;
   width: 100vw;
   height: 100vh;
-}
-
-.bgWrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+  background-color: #000;
+  overflow: hidden;
 }
 
 .heroContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100vw;
+  height: 100vh;
   display: flex;
-  justify-content: space-between;  
+  flex-direction: column;
   color: #eab308;
-  background-color: #353434;
+  padding: 50px;
 }
 
 .hero {
   position: relative;
   display: flex;
-  padding: 64px;
-  width: 100vw;
-  height: 100vh;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex: 1;
+  z-index: 1;
 }
 
 .textContainer {

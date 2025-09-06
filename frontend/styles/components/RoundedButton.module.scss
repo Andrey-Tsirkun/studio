@@ -1,6 +1,6 @@
 // Rounded button component styles
 
-.roundedButton{
+.roundedButton {
   border-radius: 3em;
   border: 1px solid rgb(136, 136, 136);
   cursor: pointer;
@@ -10,20 +10,20 @@
   justify-content: center;
   padding: 15px 60px 15px 60px;
 
-  p{
-      position: relative;
-      z-index: 1;
-      transition: color 0.4s linear;
+  p {
+    position: relative;
+    z-index: 1;
+    transition: color 0.4s linear;
   }
 
-  &:hover{
-      p{
-          color: white;
-      }
+  &:hover {
+    p {
+      color: white;
+    }
   }
 }
 
-.circle{
+.circle {
   width: 100%;
   height: 150%;
   position: absolute;
