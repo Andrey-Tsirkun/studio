@@ -1,6 +1,5 @@
 "use client"
 
-import AnimatedText from './effects/AnimatedText';
 import React, { useRef, useEffect } from 'react';
 import gsap from 'gsap';
 import Header from './Header/Header';
@@ -45,7 +44,8 @@ const Hero = () => {
           y: 0,
           duration: 0.6,
           ease: "elastic.out(1, 0.3)",
-          delay: 1.0
+          delay: 1.0,
+          splitType: "chars",
         }
       );
     }

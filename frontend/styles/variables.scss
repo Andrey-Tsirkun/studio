@@ -12,6 +12,11 @@ $font-size-base: 16px;
 $container-width: 1200px;
 $grid-gap: 1.5rem;
 
+// Breakpoints
+$mobile: 768px;
+$tablet: 769px;
+$desktop: 1024px;
+
 @forward 'sass:color';
 
 :export {
