@@ -2,20 +2,35 @@
 $primary-color: #0070f3;
 $text-color: #333;
 $background-color: #fff;
+$accent-color: #eab308;
+$dark-bg: #000;
+$nav-bg: #292929;
 
 // Typography
 $font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
   Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 $font-size-base: 16px;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
 
 // Layout
 $container-width: 1200px;
 $grid-gap: 1.5rem;
+$border-radius: 8px;
+$border-radius-large: 16px;
+$spacing-xs: 0.25rem;
+$spacing-sm: 0.5rem;
+$spacing-md: 1rem;
+$spacing-lg: 1.5rem;
+$spacing-xl: 2rem;
 
-// Breakpoints
-$mobile: 768px;
-$tablet: 769px;
-$desktop: 1024px;
+// Breakpoints (unified with mixins.scss)
+$mobile: 480px;
+$tablet: 768px;
+$laptop: 1024px;
+$desktop: 1280px;
 
 @forward 'sass:color';
 

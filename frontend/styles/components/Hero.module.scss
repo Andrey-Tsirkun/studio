@@ -25,7 +25,7 @@
   align-items: flex-end;
 
   @include laptop {
-    // justify-content: start;
+    // Laptop specific styles can be added here
   }
 
   @include tablet {
