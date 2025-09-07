@@ -24,6 +24,10 @@
   justify-content: space-between;
   align-items: flex-end;
 
+  @include laptop {
+    // justify-content: start;
+  }
+
   @include tablet {
     z-index: 1;
     flex-direction: column;
@@ -66,6 +70,10 @@
   position: relative;
   z-index: 1;
 
+  @include laptop {
+    font-size: 200px;
+  }
+
   @include tablet {
     width: 100%;
     align-items: start;
@@ -88,6 +96,10 @@
   &:last-child {
     margin-bottom: 0;
 
+    @include laptop {
+      margin-bottom: 0;
+    }
+
     @include tablet { 
       margin-bottom: 15px;
     }
@@ -95,6 +107,11 @@
     @include mobile {
       margin-bottom: 15px;
     }
+  }
+
+  @include laptop {
+    font-size: 20px;
+    margin-bottom: 10px;
   }
 
   @include tablet {
