@@ -4,7 +4,7 @@ import React, { useLayoutEffect } from 'react';
 import { useGSAP } from '@gsap/react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Copy from './effects/AnimatedText';
+import Copy from './Effects/AnimatedText';
 import styles from '../styles/components/ScrollRevealDual.module.scss';
 
 const ScrollReveal = () => {

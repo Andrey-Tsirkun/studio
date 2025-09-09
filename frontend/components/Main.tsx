@@ -2,7 +2,7 @@
 
 import React, { useRef } from 'react'
 import styles from '../styles/components/Main.module.scss';
-import ScrollReveal from './effects/ScrollReveal';
+import ScrollReveal from './Effects/ScrollReveal';
 
 const Main = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -19,6 +19,7 @@ const Main = () => {
         No! When he ate a soup made out of a poisonous mushroom?
         No! A man dies when he is forgotten!
       </ScrollReveal>
+
     </div>
   )
 }

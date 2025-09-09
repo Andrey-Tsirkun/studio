@@ -1,15 +1,19 @@
 import Hero from '../components/Hero';
 import Main from '../components/Main';
 import { ReactLenis } from 'lenis/react';
+import StickyCards from '../components/StickyCards';
 
 async function HomePage() {
   return (
-    <ReactLenis smooth lerp={1} root>
+    <>
+      <ReactLenis root />
       <main>
         <Hero />
         <Main />
-      </main>
-    </ReactLenis>
+        <StickyCards />
+        <div style={{ height: '1200px' }} />
+      </main>      
+  </>
   );
 }
 

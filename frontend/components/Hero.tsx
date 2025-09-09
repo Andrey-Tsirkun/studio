@@ -4,7 +4,7 @@ import React, { useRef, useEffect } from 'react';
 import gsap from 'gsap';
 import Header from './Header/Header';
 import styles from '../styles/components/Hero.module.scss';
-import LiquidEther from './effects/LiquidEther';
+import LiquidEther from './Effects/LiquidEther';
 
 const Hero = () => {
   const directionArray = [
